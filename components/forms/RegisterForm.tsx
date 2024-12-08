@@ -65,7 +65,7 @@ const RegisterForm = ({ user }: { user: User }) => {
         email: values.email,
         phone: values.phone,
         birthDate: new Date(values.birthDate),
-        gender: values.gender,
+        gender: values.gender.toLowerCase() as "male" | "female" | "other",
         address: values.address,
         occupation: values.occupation,
         emergencyContactName: values.emergencyContactName,
@@ -104,7 +104,7 @@ const RegisterForm = ({ user }: { user: User }) => {
         className="flex-1 space-y-12"
       >
         <section className="space-y-4">
-          <h1 className="header">Welcome 👋</h1>
+          <h1 className="header">Welcome !!</h1>
           <p className="text-dark-700">Let us know more about yourself.</p>
         </section>
 
@@ -119,6 +119,7 @@ const RegisterForm = ({ user }: { user: User }) => {
             fieldType={FormFieldType.INPUT}
             control={form.control}
             name="name"
+            label="Full Name"
             placeholder="John Doe"
             iconSrc="/assets/icons/user.svg"
             iconAlt="user"
@@ -187,7 +188,7 @@ const RegisterForm = ({ user }: { user: User }) => {
               control={form.control}
               name="address"
               label="Address"
-              placeholder="14 street, New york, NY - 5101"
+              placeholder="14 street, New Delhi p- 5101"
             />
 
             <CustomFormField
@@ -214,7 +215,7 @@ const RegisterForm = ({ user }: { user: User }) => {
               control={form.control}
               name="emergencyContactNumber"
               label="Emergency contact number"
-              placeholder="(555) 123-4567"
+              placeholder="(91+)12345 67890"
             />
           </div>
         </section>
@@ -235,7 +236,7 @@ const RegisterForm = ({ user }: { user: User }) => {
             {Doctors.map((doctor, i) => (
               <SelectItem key={doctor.name + i} value={doctor.name}>
                 <div className="flex cursor-pointer items-center gap-2">
-                  <Image
+                  <Image 
                     src={doctor.image}
                     width={32}
                     height={32}
