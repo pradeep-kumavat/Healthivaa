@@ -82,7 +82,11 @@ export const AppointmentForm = ({
           note: values.note,
         };
 
+        console.log("i am in o submit func")
         const newAppointment = await createAppointment(appointment);
+        console.log(newAppointment);
+        console.log("i am after new appointment")
+
 
         if (newAppointment) {
           form.reset();
@@ -94,6 +98,7 @@ export const AppointmentForm = ({
         const appointmentToUpdate = {
           userId,
           appointmentId: appointment?.$id!,
+          timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
           appointment: {
             primaryPhysician: values.primaryPhysician,
             schedule: new Date(values.schedule),
@@ -171,7 +176,7 @@ export const AppointmentForm = ({
               name="schedule"
               label="Expected appointment date"
               showTimeSelect
-              dateFormat="MM/dd/yyyy  -  h:mm aa"
+              dateFormat="dd/MM/yyyy  -  h:mm aa"
             />
 
             <div
