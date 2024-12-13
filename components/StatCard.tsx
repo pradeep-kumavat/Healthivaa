@@ -11,7 +11,7 @@ type StatCardProps = {
 export const StatCard = ({ count = 0, label, icon, type }: StatCardProps) => {
   return (
     <div
-      className={clsx("stat-card", {
+      className={clsx("stat-card", { 
         "bg-appointments": type === "appointments",
         "bg-pending": type === "pending",
         "bg-cancelled": type === "cancelled",

@@ -153,7 +153,7 @@ export const getAppointment = async (appointmentId: string) => {
       DATABASE_ID!,
       APPOINTMENT_COLLECTION_ID!,
       appointmentId
-    );
+    ); 
 
     return parseStringify(appointment);
   } catch (error) {

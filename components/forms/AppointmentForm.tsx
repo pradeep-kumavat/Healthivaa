@@ -95,7 +95,7 @@ export const AppointmentForm = ({
           );
         }
       } else {
-        const appointmentToUpdate = {
+        const appointmentToUpdate = { 
           userId,
           appointmentId: appointment?.$id!,
           timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,

@@ -13,7 +13,7 @@ export const StatusBadge = ({ status }: { status: Status }) => {
       })}
     >
       <Image
-        src={StatusIcon[status]}
+        src={StatusIcon[status]} 
         alt="doctor"
         width={24}
         height={24}
